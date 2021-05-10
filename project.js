@@ -59,14 +59,14 @@ am4core.ready(function() {
         var di = covid_total_timeline[i];
         di.active = di.confirmed - di.recovered;
       }
-    
+  
       // function that returns current slide
       // if index is not set, get last slide
       function getSlideData(index) {
         if (index == undefined) {
           index = covid_world_timeline.length - 1;
         }
-    
+  
         var data = covid_world_timeline[index];
     
         // augment with names
@@ -256,6 +256,7 @@ am4core.ready(function() {
       circle.defaultState.transitionEasing = am4core.ease.elasticOut;
       // later we set fill color on template (when changing what type of data the map should show) and all the clones get the color because of this
       circle.applyOnClones = true;
+
     
       // heat rule makes the bubbles to be of a different width. Adjust min/max for smaller/bigger radius of a bubble
       bubbleSeries.heatRules.push({
@@ -644,15 +645,69 @@ am4core.ready(function() {
       // cursor
       // https://www.amcharts.com/docs/v4/concepts/chart-cursor/
       lineChart.cursor = new am4charts.XYCursor();
-      lineChart.cursor.maxTooltipDistance = 0;
-      lineChart.cursor.behavior = "none"; // set zoomX for a zooming possibility
+      lineChart.cursor.maxTooltipDistance = 0;; // set zoomX for a zooming possibility
       lineChart.cursor.lineY.disabled = true;
       lineChart.cursor.lineX.stroke = activeColor;
       lineChart.cursor.xAxis = dateAxis;
+      //Chart Curso
+      lineChart.cursor.behavior = "none";
+        lineChart.cursor.events.on("selectended", function(ev) {
+          //Map bubble changes tooltip
+            imageTemplate.tooltipText="{name}:"
+          //
+            var range = ev.target.xRange;
+            var axis = ev.target.chart.xAxes.getIndex(0);
+            var from = axis.positionToDate(axis.toAxisPosition(range.start));
+            var to = axis.getPositionLabel(axis.toAxisPosition(range.end));
+            var oldData=covid_world_timeline[ Math.round((covid_world_timeline.length - 1) * axis.toAxisPosition(range.start))]
+            var newData=covid_world_timeline[Math.round((covid_world_timeline.length - 1) * axis.toAxisPosition(range.end))];
+            alert("Selected from " + from + " to " + to+"fbc: ");
+            changeData=dataDifferent(newData.list,oldData.list);
+            console.log(changeData);
+            updateMapData(changeData);
+            updateTotals()
+            console.log(Math.round((covid_world_timeline.length - 1) * axis.toAxisPosition(range.start)));
+    console.log(Math.round((covid_world_timeline.length - 1) * axis.toAxisPosition(range.end)));
+});
       // this prevents cursor to move to the clicked location while map is dragged
-      am4core.getInteraction().body.events.off("down", lineChart.cursor.handleCursorDown, lineChart.cursor)
-      am4core.getInteraction().body.events.off("up", lineChart.cursor.handleCursorUp, lineChart.cursor)
+
+      //Declare Variable
+      var confirmChange;
+      var deathChange;
+      var recoveredChange;
+      var activeChange;
+      // Change calculation
+      /*
+      function dataDifferent(newData, oldData) {
+        for (var i = 0; i < newData.length; i++) {
+          var newTemp = newData[i];
+          var oldTemp = oldData[i];
+          confirmChange=newTemp.confirmed-oldTemp.confirmed;
+          deathChange=newTemp.deaths-oldTemp.deaths;
+          recoveredChange=newTemp.recovered-oldTemp.recovered;
+          activeChange=newTemp.active-oldTemp.active;
+          console.log(newTemp.confirmed);
+        //làm lại cái này
+
+      }console.log(newTemp.confirmed);
+      console.log(oldTemp.confirmed);
     
+  
+  }
+  */
+  function dataDifferent(newTemp, oldTemp) {
+    var changeObject=newTemp;
+    for(var i=0;i<newTemp.length;i++){
+      changeObject[i].confirmed=newTemp[i].confirmed-oldTemp[i].confirmed;
+      changeObject[i].deaths=newTemp[i].deaths-oldTemp[i].deaths;
+      changeObject[i].recovered=newTemp[i].recovered-oldTemp[i].recovered;
+      changeObject[i].active=(newTemp[i].confirmed-oldTemp[i].confirmed)-(newTemp[i].recovered-oldTemp[i].recovered)-(newTemp[i].deaths-oldTemp[i].deaths);
+    }
+    return changeObject
+  }
+
+    
+
       // legend
       // https://www.amcharts.com/docs/v4/concepts/legend/  
       lineChart.legend = new am4charts.Legend();
@@ -1189,7 +1244,8 @@ am4core.ready(function() {
           currentIndex = index;
         }
       }
-    
+    var oldData;
+
       // update map data
       function updateMapData(data) {
         //modifying instead of setting new data for a nice animation
@@ -1206,7 +1262,6 @@ am4core.ready(function() {
           var di = data[i];
           var image = bubbleSeries.getImageById(di.id);
           var polygon = polygonSeries.getPolygonById(di.id);
-    
           if (image) {
             var population = Number(populations[image.dataItem.dataContext.id]);
     
@@ -1303,7 +1358,81 @@ am4core.ready(function() {
       function updateCountryTooltip() {
         polygonSeries.mapPolygons.template.tooltipText = "[bold]{name}: {value.formatNumber('#.')}[/]\n[font-size:10px]" + currentTypeName + " per million"
       }
+          //Event Chart Container 
+    var EventChartContainer = am4core.create("eventDiv", am4core.Container);
+    EventChartContainer.height = am4core.percent(100);
+    EventChartContainer.width = am4core.percent(100);
+    EventChartContainer.background = new am4core.RoundedRectangle();
+    EventChartContainer.background.fill = am4core.color("#000000");
+    EventChartContainer.background.cornerRadius(30, 30, 0, 0)
+    EventChartContainer.background.fillOpacity = 0.25;
+    EventChartContainer.paddingTop = 12;
+    EventChartContainer.layout="vertical";
+
+        //Event
+        var eventChart = EventChartContainer.createChild(am4charts.XYChart);
+        eventChart.data =events ;
+        console.log(events)
+
+
+
     
+
+
+// Create axes
+
+var eventdateAxis = eventChart.xAxes.push(new am4charts.DateAxis());
+eventdateAxis.renderer.minGridDistance = 50;
+eventdateAxis.renderer.grid.template.stroke = am4core.color("#000000");
+eventdateAxis.renderer.grid.template.strokeOpacity = 0.25;
+eventdateAxis.max = lastDate.getTime() + am4core.time.getDuration("day", 5);
+eventdateAxis.tooltip.label.fontSize = "0.8em";
+eventdateAxis.tooltip.background.fill = activeColor;
+eventdateAxis.tooltip.background.stroke = activeColor;
+eventdateAxis.renderer.labels.template.fill = am4core.color("#ffffff");
+eventdateAxis.renderer.line.strokeDasharray = "1,4";
+eventdateAxis.renderer.line.strokeOpacity = 0.6;
+eventdateAxis.tooltip.background.fillOpacity = 0.2;
+eventdateAxis.connect=false;
+var eventChartyAxis = eventChart.yAxes.push(new am4charts.CategoryAxis());
+eventChartyAxis.dataFields.category = "category";
+eventChartyAxis.renderer.labels.color=am4core.color("#FFFF00")
+eventChartyAxis.renderer.baseGrid.disabled = true;
+eventChartyAxis.tooltip.disabled = false;
+eventChartyAxis.connect=false;
+
+// Create series
+var eventSeries1 = eventChart.series.push(new am4charts.LineSeries());
+eventSeries1.dataFields.dateX = "date";
+eventSeries1.dataFields.categoryY = "category";
+eventSeries1.strokeWidth = 4;
+eventSeries1.sequencedInterpolation = true;
+eventSeries1.connect=false;
+eventSeries1.strokeWidth = 0;
+
+
+var bullet = eventSeries1.bullets.push(new am4charts.CircleBullet());
+bullet.circle.radius = 15;
+bullet.setStateOnChildren = true;
+bullet.states.create("hover");
+bullet.circle.states.create("hover").properties.radius = 15;
+bullet.tooltipText="{category} : {title}";
+bullet.connect=false;
+bullet.circle.propertyFields.fill = "color";
+bullet.circle.propertyFields.fillOpacity = 1;
+bullet.circle.propertyFields.stroke = am4core.color("#FF0000");
+bullet.circle.propertyFields.strokeOpacity = 1;
+//bullet.template.tooltipHTML = "";
+
+
+
+
+
+eventChart.cursor = new am4charts.XYCursor();
+eventChart.cursor.lineX.disabled = true;
+eventChart.cursor.lineY.disabled = true;
+
+
       /**
        * Country/state list on the right
        */
@@ -1600,7 +1729,7 @@ am4core.ready(function() {
         "ZW": "13061000"
       }
     });
-    
+
     
     
     
