@@ -1383,15 +1383,20 @@ bullet.circle.propertyFields.strokeOpacity = 1;
 //click able
 bullet.circle.clickable=true;
 //bullet.template.tooltipHTML = "";
+//handle Circle click
 bullet.events.on("hit", function(event){
   $("#thedialog").attr('src',event.target.dataItem.dataContext.link+ "&output=embed");
-  $("#somediv").attr('title',event.target.dataItem.dataContext.title)
+  console.log(event.target.dataItem.dataContext.link);
+  console.log(event.target.dataItem.dataContext.title);
   $("#somediv").dialog({
       width: 400,
       height: 450,
       modal: true,
+      title:event.target.dataItem.dataContext.title,
       close: function () {
           $("#thedialog").attr('src', "about:blank");
+          $("#somediv").removeAttr('title');
+
       }
   });
   return false;
