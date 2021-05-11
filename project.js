@@ -156,10 +156,7 @@ am4core.ready(function() {
       mapChart.projection = new am4maps.projections.Miller();
       mapChart.panBehavior = "move";
     
-      // when map is globe, beackground is made visible
-      mapChart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 0.05;
-      mapChart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#ffffff");
-      mapChart.backgroundSeries.hidden = true;
+
     
     
       // Map polygon series (defines how country areas look and behave)
@@ -319,35 +316,10 @@ am4core.ready(function() {
       title.fill = am4core.color("#ffffff");
       title.y = 20;
     
-      // switch between map and globe
-      var mapGlobeSwitch = mapChart.createChild(am4core.SwitchButton);
-      mapGlobeSwitch.align = "right"
-      mapGlobeSwitch.y = 15;
-      mapGlobeSwitch.leftLabel.text = "Map";
-      mapGlobeSwitch.leftLabel.fill = am4core.color("#ffffff");
-      mapGlobeSwitch.rightLabel.fill = am4core.color("#ffffff");
-      mapGlobeSwitch.rightLabel.text = "Globe";
-      mapGlobeSwitch.verticalCenter = "top";
+
     
     
-      mapGlobeSwitch.events.on("toggled", function() {
-        if (mapGlobeSwitch.isActive) {
-          mapChart.projection = new am4maps.projections.Orthographic;
-          mapChart.backgroundSeries.show();
-          mapChart.panBehavior = "rotateLongLat";
-          polygonSeries.exclude = [];
-        } else {
-          mapChart.projection = new am4maps.projections.Miller;
-          mapChart.backgroundSeries.hide();
-          mapChart.panBehavior = "move";
-          removeAntarctica(mapData);
-          polygonSeries.data = mapData;
-          polygonSeries.exclude = ["AQ"];
-        }
-      })
     
-    
-      // switch between map and globe
       
     
     
@@ -1073,21 +1045,8 @@ am4core.ready(function() {
         updateCountryName();
     
         mapPolygon.isActive = true;
-        // meaning it's globe
-        if (mapGlobeSwitch.isActive) {
-          // animate deltas (results the map to be rotated to the selected country)
-          if (mapChart.zoomLevel != 1) {
-            mapChart.goHome();
-            rotateAndZoom(mapPolygon);
-          }
-          else {
-            rotateAndZoom(mapPolygon);
-          }
-        }
-        // if it's not a globe, simply zoom to the country
-        else {
+
           mapChart.zoomToMapObject(mapPolygon, getZoomLevel(mapPolygon));
-        }
       }
     
       // change line chart data to the selected countries  
@@ -1384,22 +1343,22 @@ am4core.ready(function() {
 var eventdateAxis = eventChart.xAxes.push(new am4charts.DateAxis());
 eventdateAxis.renderer.minGridDistance = 50;
 eventdateAxis.renderer.grid.template.stroke = am4core.color("#000000");
-eventdateAxis.renderer.grid.template.strokeOpacity = 0.25;
+eventdateAxis.renderer.grid.template.strokeOpacity = 1;
 eventdateAxis.max = lastDate.getTime() + am4core.time.getDuration("day", 5);
 eventdateAxis.tooltip.label.fontSize = "0.8em";
 eventdateAxis.tooltip.background.fill = activeColor;
 eventdateAxis.tooltip.background.stroke = activeColor;
-eventdateAxis.renderer.labels.template.fill = am4core.color("#ffffff");
+eventdateAxis.renderer.labels.template.fill = am4core.color("#FFFF00");
 eventdateAxis.renderer.line.strokeDasharray = "1,4";
 eventdateAxis.renderer.line.strokeOpacity = 0.6;
 eventdateAxis.tooltip.background.fillOpacity = 0.2;
 eventdateAxis.connect=false;
 var eventChartyAxis = eventChart.yAxes.push(new am4charts.CategoryAxis());
 eventChartyAxis.dataFields.category = "category";
-eventChartyAxis.renderer.labels.color=am4core.color("#FFFF00")
 eventChartyAxis.renderer.baseGrid.disabled = true;
 eventChartyAxis.tooltip.disabled = false;
 eventChartyAxis.connect=false;
+eventChartyAxis.renderer.labels.template.fill=am4core.color("#FFA500")
 
 // Create series
 var eventSeries1 = eventChart.series.push(new am4charts.LineSeries());
@@ -1407,7 +1366,6 @@ eventSeries1.dataFields.dateX = "date";
 eventSeries1.dataFields.categoryY = "category";
 eventSeries1.strokeWidth = 4;
 eventSeries1.sequencedInterpolation = true;
-eventSeries1.connect=false;
 eventSeries1.strokeWidth = 0;
 
 
@@ -1422,8 +1380,22 @@ bullet.circle.propertyFields.fill = "color";
 bullet.circle.propertyFields.fillOpacity = 1;
 bullet.circle.propertyFields.stroke = am4core.color("#FF0000");
 bullet.circle.propertyFields.strokeOpacity = 1;
+//click able
+bullet.circle.clickable=true;
 //bullet.template.tooltipHTML = "";
-
+bullet.events.on("hit", function(event){
+  $("#thedialog").attr('src',event.target.dataItem.dataContext.link+ "&output=embed");
+  $("#somediv").attr('title',event.target.dataItem.dataContext.title)
+  $("#somediv").dialog({
+      width: 400,
+      height: 450,
+      modal: true,
+      close: function () {
+          $("#thedialog").attr('src', "about:blank");
+      }
+  });
+  return false;
+});
 
 
 
