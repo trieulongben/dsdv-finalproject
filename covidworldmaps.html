@@ -13,9 +13,10 @@
 
     <body class="bg-dashboard">
         <!-- Top container -->
-        <div class="w3-bar w3-top w3-large navbar-custom">
-            <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-            <a href="index.html" ><span class="w3-bar-item w3-left w3-text-amber w3-xlarge"><img src="iu.png" alt="iu" width="50" height="50"></i> CovidData - Project DSDV</span></a>
+        <div id="header" class="w3-bar w3-top w3-large navbar-custom">
+            <div id="text">
+            <a  href="index.html" ><span class="w3-bar-item w3-left w3-text-amber w3-xlarge"><img src="iu.png" alt="iu" width="30" height="30"></i> CovidData - Project DSDV</span></a>
+            </div>
         </div>
 
              <!-- Sidebar/menu -->
@@ -26,44 +27,82 @@
             
             <!-- Styles -->
 <style>
+    #text{
+        margin: 0;
+        position: absolute;
+        left: 40%;
+        
+        height:40vw;
+    }
+    #header{
+        align-self: center;
+        padding-bottom:50px;
+        position: relative;
+    }
     #chartdiv {
       max-width: 100%;
-      height: 650px;
+      height: 30vw;
       background-color:#212327;
     }
+    #eventDiv{
+        width: 100vw;
+        height:20vw;
+    }
+
     </style>
     
     <!-- Resources -->
+    
+    <script src="//cdn.amcharts.com/lib/4/plugins/timeline.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="//cdn.amcharts.com/lib/4/plugins/timeline.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://covid.amCharts.com/data/js/world_timeline.js"></script>
     <script src="https://covid.amCharts.com/data/js/total_timeline.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-    
+    <script src="./lodas/lodash.js"></script>
+    <script src="./eventChartData.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Chart code -->
-    <p>_<p>
-    <p>_<p>
-    <h1>Overview<h2>
-    <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).</p>
-    <h1>Prevention<h1>
-    <p> To prevent infection and to slow transmission of COVID-19, do the following:
-        Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.
-        Maintain at least 1 metre distance between you and people coughing or sneezing.
-        Avoid touching your face.
-        Cover your mouth and nose when coughing or sneezing.
-        Stay home if you feel unwell.
-        Refrain from smoking and other activities that weaken the lungs.
-        Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</p>
 
     <script src="project.js"></script>
-    
+    <div id="somediv" style="display:none;">
+        <iframe id="thedialog" width="350" height="350"></iframe>
+    </div>
     <!-- HTML -->
     <div id="chartdiv"></div>
             </div>
-
+    <div id="eventDiv"></div>
         <!-- End page content -->
+        <head>
+            <meta charset="UTF-8">
+            <title>Bar Chart Race for COVID-19</title>
+            <style>
+                text{ font-size: 16px; fill: #ffffff; font-family: Open Sans, sans-serif; }
+                text.caption{ font-weight: 400; font-size: 14px; fill: #ffffff; }
+                text.label{ font-weight: 600; text-anchor: end; }
+                text.valueLabel{ font-weight: 300; }
+                .tick text { fill: #ffffff; }
+                .xAxis .tick:nth-child(2) text { text-anchor: start; }
+                .tick line { shape-rendering: CrispEdges; stroke: #ffffff; }
+                .tick line.origin{ stroke: #ffffff; }
+                path.domain{ display: none; }
+                svg.label{ overflow: visible }
+           </style>
+        </head>
+        <body>
+            <div id="racingbar"></div>
+        
+            <script src="https://d3js.org/d3.v5.min.js"></script>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script src="barChartRace.js"></script>
+            <script src='chart.js'></script>
+        </body>
         
 
     </body>

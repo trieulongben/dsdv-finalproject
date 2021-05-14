@@ -1,5 +1,5 @@
 html,body,h1,h2,h3,h4,h5, p {font-family: "Open Sans", sans-serif; font-size: 0.95rem; color:#adb5bd}
-.navbar-custom {height:60px;z-index:4;background-color:#181b1e}
+.navbar-custom {height: 20px;;z-index:4;background-color:#181b1e}
 .navbar-custom i {color:#e84a67}
 .bg-dashboard{background-color:#2a2f34;}
 .dashboardTitle {font-weight: bold;}
