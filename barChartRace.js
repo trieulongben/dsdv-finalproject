@@ -280,8 +280,8 @@ class barChartRace {
             };
             this.yIndex = options.yIndex || 0;
             this.svg = d3.select(this.el).append("svg").attr("width", this.width).attr("height", this.height);
-            this.timeYear = this.svg.append('text').attr('x', this.width - this.margin.right - 430).attr('y', 70 ).html(this.date).style('text-anchor', 'end').attr('style', 'font-size: 30px; font-weight: 700; opacity: 0.75;fill: white;');
-            this.infoText = this.svg.append('text').attr('x', this.width - this.margin.right - 400).attr('y', this.height - 30).style('text-anchor', 'end').attr('style', 'font-size: 12px; font-weight: 100; opacity: 0.95; fill: white;')
+            this.timeYear = this.svg.append('text').attr('x', this.width - this.margin.right - 430).attr('y', 70 ).html(this.date).style('text-anchor', 'end').attr('style', 'font-size: 25px; font-weight: 700; opacity: 0.75;fill: white;');
+            this.infoText = this.svg.append('text').attr('x', this.width - this.margin.right - 400).attr('y', this.height - 30).style('text-anchor', 'end').attr('style', 'font-size: 12px; font-weight: 100; opacity: 0.95; fill: Orange;')
             this.infoImage = this.svg.append('image').attr('x', this.width - this.margin.right - 170).attr('y', this.height - 40).attr('height', 185).attr('width', 210).attr('transform', 'translate(-150,-200)').attr('style', 'fill: light-grey;');
     
         this.vector();
