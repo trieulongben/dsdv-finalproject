@@ -4,16 +4,16 @@ class barChartRace {
         this.el = document.querySelector(options.target) || options.target;
         this.title = options.title || '';
         this.ranks = options.ranks || [
-            { y: 115, text: '#1' },
-            { y: 166, text: '#2' },
-            { y: 218, text: '#3' },
-            { y: 270, text: '#4' },
-            { y: 319, text: '#5' },
-            { y: 371, text: '#6' },
-            { y: 422, text: '#7' },
-            { y: 474, text: '#8' },
-            { y: 525, text: '#9' },
-            { y: 577, text: '#10' }
+            { y: 103, text: '#1' },
+            { y: 129, text: '#2' },
+            { y: 155, text: '#3' },
+            { y: 181, text: '#4' },
+            { y: 207, text: '#5' },
+            { y: 233, text: '#6' },
+            { y: 259, text: '#7' },
+            { y: 284, text: '#8' },
+            { y: 312, text: '#9' },
+            { y: 335, text: '#10' }
         ];
         this.tickDuration = options.tickDuration || 500;
         this.delayDuration = options.delayDuration || 500; //4000
@@ -38,16 +38,16 @@ class barChartRace {
             this.info = options.info || {
                 'Jan 23 20': {
                     image: 'images/2020/v1/Jan-23.jpg',
-                    text: 'China imposed a lockdown in Wuhan and other cities in Hubei province'
+                    text: 'China imposed a lockdown in Wuhan '
                 },
                 'Feb 15 20': {
                     image: 'images/2020/v1/Feb-15.jpg',
-                    text: 'the US announced it would evacuate Americans aboard the Diamond Princess'
+                    text: ' evacuate Americans aboard the Diamond Princess'
 
                 },
                 'Feb 23 20': {
                     image: 'images/2020/v1/Feb-23.jpg',
-                    text: 'the US announced it would evacuate Americans aboard the Diamond Princess'
+                    text: ' evacuate Americans aboard the Diamond Princess'
 
                 },
                 'Mar 11 20': {
@@ -61,7 +61,7 @@ class barChartRace {
                 },
                 'Mar 21 20': {
                     image: 'images/2020/Mar-21.jpg',
-                    text: 'china reports no new Coronavirus cases for its Third Consecutive Day'
+                    text: 'china reports no new Coronavirus cases '
                 },
                 'Mar 29 20': {
                     image: 'images/2020/Mar-29.jpg',
@@ -73,15 +73,15 @@ class barChartRace {
                 },
                 'Apr 12 20': {
                     image: 'images/2020/Apr-12.jpg',
-                    text: 'the United States has the most Coronavirus deaths in the World'
+                    text: 'the United States has the most Coronavirus deaths.'
                 },
                 'Apr 20 20': {
                     image: 'images/2020/Apr-20.jpg',
-                    text: 'Austria becomes one of the first European countries to Reopen'
+                    text: 'Austria becomes one of the first countries to Reopen'
                 },
                 'Apr 27 20': {
                     image: 'images/2020/Apr-27.jpg',
-                    text: 'Mobile Morgue outside a hospital in Hackensack, New Jersey, United States'
+                    text: 'Mobile Morgue outside a hospital in Hackensack.'
                 },
                 'May 06 20': {
                     image: 'images/2020/May-6.jpg',
@@ -93,7 +93,7 @@ class barChartRace {
                 },
                 'May 19 20': {
                     image: 'images/2020/May-19.jpg',
-                    text: 'more than 5.1 million cases have been reported worldwide'
+                    text: 'more than 5.1 million cases have been reported .'
                 },
                 'May 30 20': {
                     image: 'images/2020/May-30.jpg',
@@ -118,7 +118,7 @@ class barChartRace {
                 },
                 'Jul 08 20': {
                     image: 'images/2020/July-8.jpg',
-                    text: 'Cases in Brazil and the United States Continue to Spike'
+                    text: 'Cases in the United States Continue to Spike'
                 },
                 'Jul 16 20': {
                     image: 'images/2020/July-16.jpg',
@@ -130,7 +130,7 @@ class barChartRace {
                 },
                 'Aug 01 20': {
                     image: 'images/2020/Aug-1.jpg',
-                    text: 'Mexico  Reports the Third-Highest Death Toll in the World '
+                    text: 'Mexico  Reports the Third-Highest Death Toll '
                 },
                 'Aug 09 20': {
                     image: 'images/2020/Aug-9.jpg',
@@ -150,7 +150,7 @@ class barChartRace {
                 },
                 'Sep 10 20': {
                     image: 'images/2020/Sep-10.jpg',
-                    text: 'Over 500,000 U.S. Children Are Diagnosed With COVID-19 '
+                    text: 'Over 500,000 U.S.Children Are Diagnosed With COVID-19 '
                 },
                 'Sep 18 20': {
                     image: 'images/2020/Sep-18.jpg',
@@ -194,11 +194,11 @@ class barChartRace {
                 },
                 'Dec 04 20': {
                     image: 'images/2020/Dec-4.jpg',
-                    text: 'UK Grants First Emergency Use Authorization to Pfizer-BioNTech Vaccine  '
+                    text: 'UK Grants First Emergency Use Authorization to Vaccine  '
                 },
                 'Dec 13 20': {
                     image: 'images/2020/Dec-13.jpg',
-                    text: 'UK Grants First Emergency Use Authorization to Pfizer-BioNTech Vaccine  '
+                    text: 'UK Grants First Emergency Use Authorization to Vaccine  '
                 },
                 'Dec 20 20': {
                     image: 'images/2020/Dec-20.jpg',
@@ -226,11 +226,11 @@ class barChartRace {
                 },
                 'Feb 05 21': {
                     image: 'images/2021/Feb-5.jpg',
-                    text: 'COVAX to Distribute 2 Million Doses to North Korea  '
+                    text: 'COVAX to Distribute 2 Million Doses to North Korea '
                 },
                 'Feb 14 21': {
                     image: 'images/2021/Feb-14.jpg',
-                    text: 'COVID-19 Vaccine Will Not be Required For Olympic Athletes  '
+                    text: 'COVID-19 Vaccine Will Not be Required For Olympic '
                 },
                 'Feb 22 21': {
                     image: 'images/2021/Feb-22.jpg',
@@ -258,7 +258,7 @@ class barChartRace {
                 },
                 'Apr 11 21': {
                     image: 'images/2021/Apr-11.jpg',
-                    text: 'Cases Surge in India; Concerns Remain Over AstraZeneca   '
+                    text: 'Cases Surge in India Concerns Remain Over AstraZeneca '
                 },
                 'Apr 19 21': {
                     image: 'images/2021/Apr-19.jpg',
@@ -266,7 +266,7 @@ class barChartRace {
                 },
                 'Apr 27 21': {
                     image: 'images/2021/Apr-27.jpg',
-                    text: 'Global COVID-19 Cases Increase for the Eighth Consecutive Week   '
+                    text: 'Global COVID-19 Cases Increase for the Eighth Week   '
                 },
                 'May 05 21': {
                     image: 'images/2021/May-5.jpg',
@@ -278,12 +278,12 @@ class barChartRace {
                 },
             
             };
-        this.yIndex = options.yIndex || 0;
-        this.svg = d3.select(this.el).append("svg").attr("width", this.width).attr("height", this.height);
-        this.timeYear = this.svg.append('text').attr('x', this.width - this.margin.right - 400).attr('y', 48).html(this.date).style('text-anchor', 'end').attr('style', 'font-size: 44px; font-weight: 700; opacity: 0.75;');
-        this.infoText = this.svg.append('text').attr('x', this.width - this.margin.right - 710).attr('y', this.height - 30).style('text-anchor', 'end').attr('style', 'font-size: 16px; font-weight: 500; opacity: 0.95;');
-        this.infoImage = this.svg.append('image').attr('x', this.width - this.margin.right - 350).attr('y', this.height - 200).attr('height', 375).attr('width', 450).attr('transform', 'translate(-150,-200)').attr('style', 'fill: light-grey;');
-
+            this.yIndex = options.yIndex || 0;
+            this.svg = d3.select(this.el).append("svg").attr("width", this.width).attr("height", this.height);
+            this.timeYear = this.svg.append('text').attr('x', this.width - this.margin.right - 430).attr('y', 70 ).html(this.date).style('text-anchor', 'end').attr('style', 'font-size: 30px; font-weight: 700; opacity: 0.75;fill: white;');
+            this.infoText = this.svg.append('text').attr('x', this.width - this.margin.right - 400).attr('y', this.height - 30).style('text-anchor', 'end').attr('style', 'font-size: 12px; font-weight: 100; opacity: 0.95; fill: white;')
+            this.infoImage = this.svg.append('image').attr('x', this.width - this.margin.right - 170).attr('y', this.height - 40).attr('height', 185).attr('width', 210).attr('transform', 'translate(-150,-200)').attr('style', 'fill: light-grey;');
+    
         this.vector();
     }
 
@@ -293,7 +293,6 @@ class barChartRace {
 
         svg.append('g').attr('class', 'axis xAxis').attr('transform', `translate(0, ${this.margin.top})`).call(this.xAxis).selectAll('.tick line').classed('origin', d => d == 0);
 
-        svg.selectAll('rect.bar').data(this.setSlice, d => d.name).enter().append('rect').attr('class', 'bar').attr('x', this.x(0) + 1).attr('width', d => x(d.lastValue) - x(0)).attr('y', d => this.y(d.rank) + 5).attr('height', this.y(1) - this.y(0) - this.barPadding).style('fill', d => d.color);
 
         const group = svg.selectAll('svg.label').data(this.setSlice, d => d.name).enter().append('svg').attr('class', 'label').attr('x', d => this.x(d.lastValue) - 8).attr('y', d => this.y(d.rank) + 5 + ((this.y(1) - this.y(0)) / 2) + 1);
         group.append('text').attr('class', 'label').attr('dx', -40).attr('dy', 20).html(d => d.name)
@@ -308,7 +307,7 @@ class barChartRace {
         let svg = this.svg.append("g");
         svg.append("rect").attr('width', 80).attr('height', 600).attr('x', 0).attr('y', 46).attr('fill', '#2A2F34');
         this.ranks.forEach(item => {
-            svg.append("text").attr("x", 25).attr("y", item.y).html(item.text).attr('style', 'font-size: 26px; font-weight: 700; fill: #ffffff;');
+            svg.append("text").attr("x", 35).attr("y", item.y -4).html(item.text).attr('style', 'font-size: 20px; font-weight: 700; fill: white;');
         });
     }
 
@@ -400,8 +399,9 @@ class barChartRace {
 
             group.append('text')
                 .attr('class', 'label')
-                .attr('dx', -40)
-                .attr('dy', 20)
+                .attr('dx', + 10)                 
+                .attr('dy', 10)                         //////////////////////////
+                .attr('style', 'fill: white;')
                 .html(d => d.name)
 
             group.append('image')
