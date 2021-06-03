@@ -18,8 +18,8 @@ class barChartRace {
         this.tickDuration = options.tickDuration || 500;
         this.delayDuration = options.delayDuration || 500; //4000
         this.top = options.top || 10;
-        this.height = options.height || 600;
-        this.width = options.width || 1366 - 80;
+        this.height = options.target.height || 334;
+        this.width = options.target.width || 514;
         this.margin = options.margin || {
             top: 80,
             right: 0,
