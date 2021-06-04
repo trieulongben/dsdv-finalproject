@@ -14,12 +14,14 @@ class barChartRace {
             { y: 284, text: '#8' },
             { y: 312, text: '#9' },
             { y: 335, text: '#10' }
+
         ];
         this.tickDuration = options.tickDuration || 500;
         this.delayDuration = options.delayDuration || 500; //4000
         this.top = options.top || 10;
         this.height = options.target.height || 334;
         this.width = options.target.width || 514;
+
         this.margin = options.margin || {
             top: 80,
             right: 0,
@@ -52,6 +54,7 @@ class barChartRace {
                 },
                 'Mar 11 20': {
                     image: 'images/2020/v1/Mar-11.jpg',
+
                     text: 'the WHO declared the coronavirus outbreak a pandemic'
                 },
 
@@ -101,6 +104,7 @@ class barChartRace {
                 },
                 'Jun 06 20': {
                     image: 'images/2020/June-6.jpg',
+
                     text: 'Countries Begin to Reopen'
                 },
 
@@ -274,6 +278,7 @@ class barChartRace {
                 },
                 'May 13 21': {
                     image: 'images/2021/May-13.jpg',
+
                     text: 'COVAX Vaccine Supply Grows   '
                 },
             
@@ -284,6 +289,7 @@ class barChartRace {
             this.infoText = this.svg.append('text').attr('x', this.width - this.margin.right - 400).attr('y', this.height - 30).style('text-anchor', 'end').attr('style', 'font-size: 12px; font-weight: 100; opacity: 0.95; fill: Orange;')
             this.infoImage = this.svg.append('image').attr('x', this.width - this.margin.right - 170).attr('y', this.height - 40).attr('height', 185).attr('width', 210).attr('transform', 'translate(-150,-200)').attr('style', 'fill: light-grey;');
     
+
         this.vector();
     }
 
@@ -292,6 +298,8 @@ class barChartRace {
         svg.append('text').attr("x", 45).attr('y', 45).html(this.title).attr('style', 'font-size: 28px; font-weight: 700; opacity: 0.75;');
 
         svg.append('g').attr('class', 'axis xAxis').attr('transform', `translate(0, ${this.margin.top})`).call(this.xAxis).selectAll('.tick line').classed('origin', d => d == 0);
+
+
 
 
         const group = svg.selectAll('svg.label').data(this.setSlice, d => d.name).enter().append('svg').attr('class', 'label').attr('x', d => this.x(d.lastValue) - 8).attr('y', d => this.y(d.rank) + 5 + ((this.y(1) - this.y(0)) / 2) + 1);
@@ -308,6 +316,7 @@ class barChartRace {
         svg.append("rect").attr('width', 80).attr('height', 600).attr('x', 0).attr('y', 46).attr('fill', '#2A2F34');
         this.ranks.forEach(item => {
             svg.append("text").attr("x", 35).attr("y", item.y -4).html(item.text).attr('style', 'font-size: 20px; font-weight: 700; fill: white;');
+
         });
     }
 
@@ -402,6 +411,7 @@ class barChartRace {
                 .attr('dx', + 10)                 
                 .attr('dy', 10)                         //////////////////////////
                 .attr('style', 'fill: white;')
+
                 .html(d => d.name)
 
             group.append('image')
