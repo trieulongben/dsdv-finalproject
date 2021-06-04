@@ -78,6 +78,31 @@
             </div>
     <div id="eventDiv"></div>
         <!-- End page content -->
+        <head>
+            <meta charset="UTF-8">
+            <title>Bar Chart Race for COVID-19</title>
+            <style>
+                text{ font-size: 16px; fill: #ffffff; font-family: Open Sans, sans-serif; }
+                text.caption{ font-weight: 400; font-size: 14px; fill: #ffffff; }
+                text.label{ font-weight: 600; text-anchor: end; }
+                text.valueLabel{ font-weight: 300; }
+                .tick text { fill: #ffffff; }
+                .xAxis .tick:nth-child(2) text { text-anchor: start; }
+                .tick line { shape-rendering: CrispEdges; stroke: #ffffff; }
+                .tick line.origin{ stroke: #ffffff; }
+                path.domain{ display: none; }
+                svg.label{ overflow: visible }
+           </style>
+        </head>
+        <body>
+            <div id="racingbar"></div>
+        
+            <script src="https://d3js.org/d3.v5.min.js"></script>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script src="barChartRace.js"></script>
+            <script src='chart.js'></script>
+        </body>
         
 
     </body>

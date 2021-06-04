@@ -2,8 +2,7 @@
 var colorSet=new am4core.ColorSet();
 var events=[{
     "title": "The W.H.O. declared a global health emergency.",
-    "category": "Solution","date": new Date(2020, 0, 30),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html",
-    
+    "category": "Solution","date": new Date(2020, 0, 30),"center": "bottom","image":"images/Mar-15"
   },{
     "title": "The Trump administration restricted travel from China.",
     "category": "Solution","date": new Date(2020, 1, 02),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html",
