@@ -115,23 +115,24 @@ am4core.ready(function() {
       // LAYOUT & CHARTS
       //////////////////////////////////////////////////////////////////////////////
     
-      // main container
+
+      /////////////////////////
+      // MAP CONTAINER
       // https://www.amcharts.com/docs/v4/concepts/svg-engine/containers/
-      var container = am4core.create("chartdiv", am4core.Container);
-      container.width = am4core.percent(100);
-      container.height = am4core.percent(100);
-    
-      container.tooltip = new am4core.Tooltip();  
-      container.tooltip.background.fill = am4core.color("#000000");
-      container.tooltip.background.stroke = activeColor;
-      container.tooltip.fontSize = "0.9em";
-      container.tooltip.getFillFromObject = false;
-      container.tooltip.getStrokeFromObject = false;
-    
+      var mapContainer = am4core.create("mapdiv", am4core.Container);
+      mapContainer.width = am4core.percent(100);
+      mapContainer.height = am4core.percent(100);
+      console.log(am4core.percent(50))
+      mapContainer.tooltip = new am4core.Tooltip();  
+      mapContainer.tooltip.background.fill = am4core.color("#000000");
+      mapContainer.tooltip.background.stroke = activeColor;
+      mapContainer.tooltip.fontSize = "0.9em";
+      mapContainer.tooltip.getFillFromObject = false;
+      mapContainer.tooltip.getStrokeFromObject = false;
       // MAP CHART 
       // https://www.amcharts.com/docs/v4/chart-types/map/
-      var mapChart = container.createChild(am4maps.MapChart);
-      mapChart.height = am4core.percent(80);
+      var mapChart = mapContainer.createChild(am4maps.MapChart);
+      mapChart.height = am4core.percent(100);
       mapChart.zoomControl = new am4maps.ZoomControl();
       mapChart.zoomControl.align = "right";
       mapChart.zoomControl.marginRight = 15;
@@ -260,7 +261,7 @@ am4core.ready(function() {
         "target": circle,
         "property": "radius",
         "min": 3,
-        "max": 30,
+        "max": 200,
         "dataField": "value"
       })
     
@@ -302,31 +303,10 @@ am4core.ready(function() {
         }
         return longitude;
       })
-    
-      // END OF MAP  
-    
-      // top title
-      var title = mapChart.titles.create();
-      title.fontSize = "1.5em";
-      title.text = "COVID-19 Spread Data";
-      title.align = "left";
-      title.horizontalCenter = "left";
-      title.marginLeft = 20;
-      title.paddingBottom = 10;
-      title.fill = am4core.color("#ffffff");
-      title.y = 20;
-    
-
-    
-    
-    
-      
-    
-    
       // buttons & chart container
-      var buttonsAndChartContainer = container.createChild(am4core.Container);
+      var buttonsAndChartContainer = mapContainer.createChild(am4core.Container);
       buttonsAndChartContainer.layout = "vertical";
-      buttonsAndChartContainer.height = am4core.percent(45); // make this bigger if you want more space for the chart
+      buttonsAndChartContainer.height = am4core.percent(20); // make this bigger if you want more space for the chart
       buttonsAndChartContainer.width = am4core.percent(100);
       buttonsAndChartContainer.valign = "bottom";
     
@@ -346,11 +326,42 @@ am4core.ready(function() {
       var buttonsContainer = nameAndButtonsContainer.createChild(am4core.Container);
       buttonsContainer.layout = "grid";
       buttonsContainer.width = am4core.percent(100);
-      buttonsContainer.x = 10;
+      buttonsContainer.x = 3;
       buttonsContainer.contentAlign = "right";
     
+    
+      // END OF MAP  
+    
+      // top title
+      var title = mapChart.titles.create();
+      title.fontSize = "1.5em";
+      title.text = "COVID-19 Spread Data";
+      title.align = "left";
+      title.horizontalCenter = "left";
+      title.marginLeft = 20;
+      title.paddingBottom = 10;
+      title.fill = am4core.color("#ffffff");
+      title.y = 20;
+    
+
+    
+    
+    // CHART CONTAINER
+      
+      var container = am4core.create("chartdiv", am4core.Container);
+      container.width = am4core.percent(100);
+      container.height = am4core.percent(100);
+    
+      container.tooltip = new am4core.Tooltip();  
+      container.tooltip.background.fill = am4core.color("#000000");
+      container.tooltip.background.stroke = activeColor;
+      container.tooltip.fontSize = "0.9em";
+      container.tooltip.getFillFromObject = false;
+      container.tooltip.getStrokeFromObject = false;
+    
+      
       // Chart & slider container
-      var chartAndSliderContainer = buttonsAndChartContainer.createChild(am4core.Container);
+      var chartAndSliderContainer = container.createChild(am4core.Container);
       chartAndSliderContainer.layout = "vertical";
       chartAndSliderContainer.height = am4core.percent(100);
       chartAndSliderContainer.width = am4core.percent(100);
@@ -362,7 +373,7 @@ am4core.ready(function() {
       chartAndSliderContainer.paddingBottom = 0;
     
       // Slider container
-      var sliderContainer = chartAndSliderContainer.createChild(am4core.Container);
+      var sliderContainer = container.createChild(am4core.Container);
       sliderContainer.width = am4core.percent(100);
       sliderContainer.padding(0, 15, 15, 10);
       sliderContainer.layout = "horizontal";
@@ -871,16 +882,7 @@ am4core.ready(function() {
       })
     
     
-      // data warning label
-      var label = lineChart.plotContainer.createChild(am4core.Label);
-      label.text = "Current day stats may be incomplete until countries submit their data.";
-      label.fill = am4core.color("#ffffff");
-      label.fontSize = "0.8em";
-      label.paddingBottom = 4;
-      label.opacity = 0.5;
-      label.align = "right";
-      label.horizontalCenter = "right";
-      label.verticalCenter = "bottom";
+
     
       // BUTTONS
       // create buttons

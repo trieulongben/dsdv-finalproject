@@ -1,7 +1,8 @@
 axios.get('http://covid-tracker-us.herokuapp.com/confirmed').then(res => {
                     let racingbar = new barChartRace({
                         target: '#racingbar',
-                        title: 'Bar Chart Race for COVID-19 by Country'
+                        title: 'Bar Chart Race for COVID-19'
+
                     })
                     
                     let histories = formatHistory(res.data.locations[0].history)
