@@ -27,6 +27,7 @@ am4core.ready(function() {
       var currentCountry = "World";
     
       // last date of the data
+
       var lastDate = new Date(covid_total_timeline[covid_total_timeline.length - 1].date);
       var currentDate = lastDate;
     
@@ -395,6 +396,11 @@ am4core.ready(function() {
         var index = Math.round((covid_world_timeline.length - 1) * slider.start);
         updateMapData(getSlideData(index).list);
         updateTotals(index);
+        
+
+        racingbars.updateByDate(index);
+        console.log(index);
+        console.log(racingbars.yIndex);
       })
       // stop animation if dragged
       slider.startGrip.events.on("drag", () => {
@@ -1399,7 +1405,9 @@ bullet.events.on("hit", function(event){
   return false;
 });
 
-
+console.log(covid_total_timeline.length);
+console.log(covid_total_timeline[covid_total_timeline.length-1].date)
+console.log(covid_total_timeline[0].date)
 
 
 eventChart.cursor = new am4charts.XYCursor();

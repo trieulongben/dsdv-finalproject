@@ -340,126 +340,12 @@ class barChartRace {
         }
     }
 
-    update() {
-        var interval = d3.interval(e => {
-
-            this.setSlice = this.series.filter(d => d.date == this.date && !isNaN(d.value))
-                .sort((a, b) => b.value - a.value)
-                .slice(0, this.top);
-
-            this.setSlice.forEach((d, i) => d.rank = i);
-
-            this.x.domain([0, d3.max(this.setSlice, d => d.value)]);
-
-            this.svg.select('.xAxis')
-                .transition()
-                .duration(this.tickDuration)
-                .ease(d3.easeLinear)
-                .call(this.xAxis);
-
-            let bars = this.svg.selectAll('.bar').data(this.setSlice, d => d.name);
-
-            bars
-                .enter()
-                .append('rect')
-                .attr('class', d => `bar ${d.name.replace(/\s/g, '_')}`)
-                .attr('x', this.x(0) + 1)
-                .attr('width', d => this.x(d.value) - this.x(0) - 20)
-                .attr('y', d => this.y(this.top + 1) + 5)
-                .attr('height', this.y(1) - this.y(0) - this.barPadding)
-                .style('fill', d => d.color)
-                .transition()
-                .duration(this.tickDuration)
-                .ease(d3.easeLinear)
-                .attr('y', d => this.y(d.rank) + 5);
-
-            bars
-                .transition()
-                .duration(this.tickDuration)
-                .ease(d3.easeLinear)
-                .attr('width', d => this.x(d.value) - this.x(0) - 21)
-                .attr('y', d => this.y(d.rank) + 5);
-
-            bars
-                .exit()
-                .transition()
-                .duration(this.tickDuration)
-                .ease(d3.easeLinear)
-                .attr('width', d => this.x(d.value) - this.x(0) - 21)
-                .attr('y', d => this.y(this.top + 1) + 5)
-                .remove();
-
-            let labels = this.svg.selectAll('svg.label')
-                .data(this.setSlice, d => d.name);
-
-            const group = labels
-                .enter()
-                .append('svg')
-                .attr('class', 'label')
-                .attr('x', d => this.x(d.value) - 28)
-                .attr('y', d => this.y(this.top + 1) + 10)
-                ;
-
-            group
-                .transition()
-                .duration(this.tickDuration)
-                .ease(d3.easeLinear)
-                .attr('y', d => this.y(d.rank) + 10)
-                ;
-
-            group.append('text')
-                .attr('class', 'label')
-                .attr('dx', + 10)                 
-                .attr('dy', 10)                         //////////////////////////
-                .attr('style', 'fill: white;')
-
-                .html(d => d.name)
-
-            group.append('image')
-                .attr('class', 'flag')
-                .attr('width', 35)
-                .attr('height', 20)
-                .attr('x', -35)
-                .attr('y', 3)
-                //.attr('xlink:href', d => `https://disease.sh/assets/img/flags/${d.code}.png`)
-                .attr("xlink:href", d => d.img)
-
-            labels
-                .transition()
-                .duration(this.tickDuration)
-                .ease(d3.easeLinear)
-                .attr('x', d => this.x(d.value) - 28)
-                .attr('y', d => this.y(d.rank) + 10);
-
-            labels
-                .exit()
-                .transition()
-                .duration(this.tickDuration)
-                .ease(d3.easeLinear)
-                .attr('x', d => this.x(d.value) - 28)
-                .attr('y', d => this.y(this.top + 1) + 5)
-                .remove();
-
-
-
-
-            this.updateInfoLabel();
-            this.rank();
-            this.timeYear.html(this.date);
-
-            this.yIndex++;
-            if (this.yIndex >= this.sets.length) {
-                interval.stop();
-            }
-            this.date = this.sets[this.yIndex];
-
-        }, this.delayDuration);
-
-        return interval;
-    }
+   
 
     updateByDate(inputDate) {
-
+        console.log(this.sets[0])
+            this.yIndex=inputDate;
+            this.date = this.sets[this.yIndex]; //sets là array containt từ ngày Jan 22 đến Jun 5
             this.setSlice = this.series.filter(d => d.date == this.date && !isNaN(d.value))
                 .sort((a, b) => b.value - a.value)
                 .slice(0, this.top);
@@ -564,11 +450,6 @@ class barChartRace {
             this.rank();
             this.timeYear.html(this.date);
 
-            this.yIndex++;
-            if (this.yIndex >= this.sets.length) {
-                interval.stop();
-            }
-            this.date = this.sets[this.yIndex];
 
         }
 
