@@ -1,16 +1,17 @@
-axios.get('http://covid-tracker-us.herokuapp.com/confirmed').then(res => {
+var racingbars;
+$.getJSON('data/confirmed.json').success(function(res) {
                     let racingbar = new barChartRace({
                         target: '#racingbar',
                         title: 'Bar Chart Race for COVID-19'
 
                     })
-                    
-                    let histories = formatHistory(res.data.locations[0].history)
+                    console.log(res);
+                    let histories = formatHistory(res.locations[0].history)
                     histories.forEach(history => {
                         racingbar.sets.push(history)
                     })
-                    
-                    mergeData(res.data.locations).forEach(country => {
+                    racingbars=racingbar;
+                    mergeData(res.locations).forEach(country => {
                         racingbar.sets.forEach(date => {
                             const dateVal = moment(date, 'MMM D YY').format('M/D/YY')
                             const dateDay = moment(dateVal, 'M/D/YY').dayOfYear()
@@ -39,8 +40,6 @@ axios.get('http://covid-tracker-us.herokuapp.com/confirmed').then(res => {
                     
                     racingbar.update()
         
-                }).catch(err => {
-                    console.log(err);
                 })
                 
                 function formatHistory(history) {
