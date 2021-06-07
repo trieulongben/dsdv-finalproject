@@ -1392,7 +1392,7 @@ bullet.circle.propertyFields.strokeOpacity = 1;
 bullet.circle.clickable=true;
 //bullet.template.tooltipHTML = "";
 bullet.events.on("hit", function(event){
-  $("#thedialog").attr('src',event.target.dataItem.dataContext.link+ "&output=embed");
+  $("#images").attr('src',event.target.dataItem.dataContext.image);
   $("#somediv").attr('title',event.target.dataItem.dataContext.title)
   $("#somediv").dialog({
       width: 400,
@@ -1404,10 +1404,6 @@ bullet.events.on("hit", function(event){
   });
   return false;
 });
-
-console.log(covid_total_timeline.length);
-console.log(covid_total_timeline[covid_total_timeline.length-1].date)
-console.log(covid_total_timeline[0].date)
 
 
 eventChart.cursor = new am4charts.XYCursor();
@@ -1448,13 +1444,7 @@ eventChart.cursor.lineY.disabled = true;
         //return am4geodata_data_countries2[id] ? am4geodata_data_countries2[id].country : id == "XX" ? "Others" : id;
       //}
     
-      function removeAntarctica(mapData) {
-        for (var i = mapData.length - 1; i >= 0; i--) {
-          if (mapData[i].id == "AQ") {
-            mapData.splice(i, 1);
-          }
-        }
-      }
+
     
       var populations = {
         "AD": "84000",

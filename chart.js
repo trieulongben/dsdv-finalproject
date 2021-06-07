@@ -2,7 +2,7 @@ var racingbars;
 $.getJSON('data/confirmed.json').success(function(res) {
                     let racingbar = new barChartRace({
                         target: '#racingbar',
-                        title: 'Bar Chart Race for COVID-19'
+                        title: 'Bar Chart for COVID-19'
 
                     })
                     console.log(res);
