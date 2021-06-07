@@ -32,9 +32,7 @@ $.getJSON('data/confirmed.json').success(function(res) {
                     
                     let yIndex = racingbar.yIndex;
                     racingbar.date = racingbar.sets[yIndex];
-                    for (i=1;i<racingbar.sets.length;i++){
-                        console.log(racingbar.sets[i]);
-                    }
+
                     racingbar.setSlice = racingbar.series.filter(d => d.date == racingbar.date && !isNaN(d.value))
                         .sort((a,b) => b.value - a.value)
                         

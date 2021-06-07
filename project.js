@@ -578,7 +578,7 @@ am4core.ready(function() {
       lineChart.zoomOutButton.disabled = true;
       lineChart.paddingBottom = 5;
       lineChart.paddingTop = 3;
-    
+    lineChart.background.fill=am4core.color("#2A2F34");
       // make a copy of data as we will be modifying it
       lineChart.data = JSON.parse(JSON.stringify(covid_total_timeline));
     
