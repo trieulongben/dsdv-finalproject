@@ -1,5 +1,5 @@
-//3 Kiểu : Good news, React, Bad news
-var colorSet=new am4core.ColorSet();
+//3 Kiểu : Good news, React, Bad News
+var colorSet=am4core.color();
 var events=[{
     "title": "The W.H.O. declared a global health emergency.",
     "category": "React","date": new Date(2020, 0, 30),"center": "bottom","image":"images/2020/v1/Mar-15/jpg",
@@ -83,168 +83,168 @@ var events=[{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         {
             "title": "Chinese authorities treated dozens of cases of pneumonia of unknown cause.",
-            "category": "Bad news","color":colorSet.getIndex(5),
+            "category": "Bad News","color":am4core.color("C2213A"),
             "date":new Date(2019, 11, 31)
             ,"center": "bottom","link":"http://www.youtube.com/embed/eCfDxZxTBW4","image":"images/2020/v1/Dec-31-19.jpg",
           },{
             "title": "The first coronavirus death was reported outside China.",
-            "category": "Bad news","color":colorSet.getIndex(5),"date":new Date(2020, 1, 07),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Philippines.jpg",
+            "category": "Bad News","color":am4core.color("C2213A"),"date":new Date(2020, 1, 07),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Philippines.jpg",
             "description": "A 44-year-old man in the Philippines died after being infected, officials said, the first death reported outside China. By this point, more than 360 people had died.",
           },{
             "title": "France announced the first coronavirus death in Europe.",
-            "category": "Bad news","color":colorSet.getIndex(5),"date": new Date(2020, 1, 14),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/France.jpg",
+            "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 1, 14),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/France.jpg",
             "description": "An 80-year-old Chinese tourist died on Feb. 14 at a hospital in Paris, in what was the first coronavirus death outside Asia, the authorities said. It was the fourth death from the virus outside mainland China, where about 1,500 people had died, most of them in Hubei Province.",
           },{
             "title": "Latin America reported its first case.",
-            "category": "Bad news","color":colorSet.getIndex(5),"date": new Date(2020, 1, 26),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Brazil.jpg",
+            "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 1, 26),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Brazil.jpg",
             "description": "Brazilian health officials said that a 61-year-old São Paulo man, who had returned recently from a business trip to Italy, tested positive for the coronavirus. It was the first known case in Latin America. ",
           },{
             "title": "The United States reported a death.",
-            "category": "Bad news","color":colorSet.getIndex(5),"date": new Date(2020, 1, 29),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/US.webp",
+            "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 1, 29),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/US.webp",
             "description": "On Feb. 29, the authorities announced that a patient near Seattle had died from the coronavirus, in what was believed to be the first coronavirus death in the United States at the time. In fact, two people had died earlier, though their Covid-19 diagnoses were not discovered until months later.",
           },  {
             "title": "Prime Minister Boris Johnson moved into intensive care",
-            "category": "React","color":colorSet.getIndex(5),"date": new Date(2020, 3, 6),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/BorisJohnson.jpg",
+            "category": "React","date": new Date(2020, 3, 6),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/BorisJohnson.jpg",
             "description": "Ten days after going public with his coronavirus diagnosis, Prime Minister Boris Johnson of Britain was moved into intensive care. The decision was a precaution, according to the British government, who also said he had been in good spirits. Mr. Johnson had also asked the foreign secretary, Dominic Raab, to deputize for him “where necessary.” He was released on April 12.",
           } ,  {
     "title": "Officials discovered earlier known U.S. coronavirus deaths in California",
-    "category": "Bad News","color":colorSet.getIndex(5),"date": new Date(2020, 3, 21),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/California.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 3, 21),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/California.jpg",
     "description": "Officials in Santa Clara County, Calif., announced that two residents there died of the coronavirus on Feb. 6 and Feb. 17, making them the earliest known victims of the pandemic in the United States. The new information, gained from autopsies of the residents, moved the timeline of the virus’s spread in country weeks earlier than previously understood.",
   },
   {
     "title": "The European Union, pressured by China, watered down a report on disinformation",
-    "category": "React","color":colorSet.getIndex(5),"date": new Date(2020, 3, 24),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/disinformation.jpg",
+    "category": "React","date": new Date(2020, 3, 24),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/disinformation.jpg",
     "description": "The E.U. appeared to succumb to pressure from Beijing and softened criticism of China in a report on disinformation about the coronavirus pandemic. While the initial report was not particularly harsh, European officials delayed and then rewrote the document to dilute the focus on China, a vital trading partner.",
   },  {
     "title": "The E.U. said it would reopen borders.",
-    "category": "React","color":colorSet.getIndex(5),"date": new Date(2020, 5, 30),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/borders.jpg",
+    "category": "React","date": new Date(2020, 5, 30),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/borders.jpg",
     "description": "The European Union prepared to open to visitors from 15 countries on July 1, but not to travelers from the United States, Brazil or Russia. The move puts into effect a complex policy that seeks to balance health concerns with politics, diplomacy and the desperate need for tourism revenue. Australia, Canada and New Zealand were among the approved list of countries. Travelers from China will be permitted if China reciprocates.",
   },  {
     "title": "More than five million Americans lost health insurance",
-    "category": "Bad News","color":colorSet.getIndex(5),"date": new Date(2020, 6, 13),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/health.jpeg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 6, 13),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/health.jpeg",
     "description": "The coronavirus pandemic stripped an estimated 5.4 million Americans of their health insurance between February and May, a period in which more adults became uninsured because of job losses than have ever lost coverage in a single year, according to a study.",
   },////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 {
-    "title": "China reported its first death","category": "Bad news","color":colorSet.getIndex(10),
+    "title": "China reported its first death","category": "Bad News","color":am4core.color("C2213A"),
     "date": new Date(2020, 0, 11),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/china1st.webp",
     "description": "On Jan. 11, Chinese state media reported the first known death from an illness caused by the virus, which had infected dozens of people. The 61-year-old man who died was a regular customer at the market in Wuhan. The report of his death came just before one of China’s biggest holidays, when hundreds of millions of people travel across the country.",
   },{
-    "title": "Other countries, including the United States, confirmed cases","category": "Bad news","color":colorSet.getIndex(5),
+    "title": "Other countries, including the United States, confirmed cases","category": "Bad News","color":am4core.color("C2213A"),
     "date":new Date(2020, 0, 20),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/others.PNG",
     "description": "The first confirmed cases outside mainland China occurred in Japan, South Korea and Thailand, according to the W.H.O.’s first situation report. The first confirmed case in the United States came the next day in Washington State, where a man in his 30s developed symptoms after returning from a trip to Wuhan.",
   },{
     "title": "Wuhan, a city of more than 11 million, was cut off by the Chinese authorities.",
-    "category": "React","color":colorSet.getIndex(10),"date": new Date(2020, 0, 23),"Solution": "bottom","image":"images/2020/v1/Jan-23.jpg",
+    "category": "React","date": new Date(2020, 0, 23),"Solution": "bottom","image":"images/2020/v1/Jan-23.jpg",
     "description": "The Chinese authorities closed off Wuhan by canceling planes and trains leaving the city, and suspending buses, subways and ferries within it. At this point, at least 17 people had died and more than 570 others had been infected, including in Taiwan, Japan, Thailand, South Korea and the United States.",
   },{
     "title": "Latin America began to feel the effects.",
-    "category": "React","color":colorSet.getIndex(10),"date": new Date(2020, 2, 16),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Latin.jpg",
+    "category": "React","date": new Date(2020, 2, 16),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Latin.jpg",
     "description": "Several countries across Latin America imposed restrictions on their citizens to slow the spread of the virus. Venezuela announced a nationwide quarantine that began on March 17. Ecuador and Peru implemented countrywide lockdowns, while Colombia and Costa Rica closed their borders. ",
   },{
     "title": "The United States led the world in confirmed cases",
-    "category": "React","color":colorSet.getIndex(10),"date": new Date(2020, 2, 26),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/US1st.jpg",
+    "category": "React","date": new Date(2020, 2, 26),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/US1st.jpg",
     "description": "The United States officially became the country hardest hit by the pandemic, with at least 81,321 confirmed infections and more than 1,000 deaths. This was more reported cases than in China, Italy or any other country at the time.",
   },
   {
     "title": "Cases topped a million, and millions lost their jobs",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 3, 2),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/lossjob.jpeg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 3, 2),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/lossjob.jpeg",
     "description": "In just a few weeks, the pandemic put nearly 10 million Americans out of work, including a staggering 6.6 million people who applied for unemployment benefits in the last week of March. The speed and scale of the job losses was without precedent: Until March, the worst week for unemployment filings was 695,000 in 1982.",
   },
   {
     "title": "Cases surged in Russia",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 3, 10),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Russia.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 3, 10),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Russia.jpg",
     "description": "The number of people hospitalized in Moscow with Covid-19 doubled from the previous week, with two-thirds of the country’s 12,000 reported cases in Moscow. The increase in cases pushed Moscow’s health care system to its limit, well before an expected peak.",
   },
 
   {
     "title": "The global death toll surpassed 200,000",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 3, 26),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/gdeath200k.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 3, 26),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/gdeath200k.jpg",
     "description": "By April 26, the coronavirus pandemic had killed more than 200,000 people and sickened more than 2.8 million worldwide, according to data collected by The New York Times. The actual toll is higher by an unknown degree, and will remain so for some time.",
   },
  
   {
     "title": "The coronavirus reached France in December, doctors said, rewriting the epidemic’s timeline",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 4, 5),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/covidFrance.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 4, 5),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/covidFrance.jpg",
     "description": "French doctors said that they had discovered that a patient treated for pneumonia in late December had the coronavirus. If the diagnosis is verified, it would suggest that the virus appeared in Europe nearly a month earlier than previously understood and days before Chinese authorities first reported the new illness to the World Health Organization. The first report of an infection in Europe was on Jan. 24 in France.",
   },
   {
     "title": "Japan and Germany, two of the world’s largest economies, entered recessions",
-    "category": "React","color":colorSet.getIndex(10),"date": new Date(2020, 4, 17),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/eco.png",
+    "category": "React","date": new Date(2020, 4, 17),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/eco.png",
     "description": "Japan, the world’s third-largest economy after the United States and China, fell into a recession for the first time since 2015. Its economy shrank by an annualized rate of 3.4 percent in the first three months of the year.",
   },
   {
     "title": "Infections in Latin America continued to rise",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 4, 22),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/caselatin.png",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 4, 22),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/caselatin.png",
     "description": "On May 22, Brazil overtook Russia in reporting the second-highest count of infections worldwide, reaching more than 330,000. Peru and Chile ranked among the hardest-hit countries in the world in terms of infections per capita, around 1 in 300. Data from Ecuador indicated that it was suffering one of the worst outbreaks in the world. The United States remained the global epicenter, with more than 1.6 million cases and the number of deaths nearing 100,000.",
   },
   {
     "title": "Coronavirus deaths in the U.S. passed 100,000.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 4, 27),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath100k.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 4, 27),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath100k.jpg",
     "description": "Four months after the government confirmed the first known case, more than 100,000 people who had the coronavirus were recorded dead in the United States. The death toll was far higher than in any other nation around the world.",
   },
   {
     "title": "Coronavirus tore into regions previously spared.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 5, 4),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/middleast.jpg",
-    "description": "The number of known cases across the globe grew faster than ever, with more than 100,000 new infections a day. Densely populated, low- and middle-income countries across the Middle East, Latin America, Africa and South Asia were hit the hardest, suggesting bad news for strongmen and populists who once reaped political points by vaunting low infection rates as evidence of their leadership’s virtues.",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 5, 4),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/middleast.jpg",
+    "description": "The number of known cases across the globe grew faster than ever, with more than 100,000 new infections a day. Densely populated, low- and middle-income countries across the Middle East, Latin America, Africa and South Asia were hit the hardest, suggesting Bad News for strongmen and populists who once reaped political points by vaunting low infection rates as evidence of their leadership’s virtues.",
   },
   {
     "title": "Coronavirus cases in Africa topped 200,000.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 5, 11),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/africacase200k.jpeg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 5, 11),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/africacase200k.jpeg",
     "description": "The W.H.O. said that it took Africa 98 days to reach 100,000 coronavirus cases, but only 18 days for that figure to double. While the sharp rise in cases could be explained by an increase in testing, the agency said, more than half of the 54 countries on the continent were experiencing community transmissions. Ten countries were driving the rise in numbers and accounted for nearly 80 percent of all cases. South Africa has a quarter of the total cases.",
   },
   {
     "title": "Southern U.S. states saw sharp rise in cases.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 5, 20),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/UScase.png",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 5, 20),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/UScase.png",
     "description": "On June 20, for the third straight day, Florida and South Carolina broke their single-day records for new cases. The news came as infection levels for Missouri and Nevada also reached new highs. On June 19, the United States reported more than 30,000 new infections, its highest since May 1, with cases rising in 19 states across the South, West and Midwest.",
   },
 
   {
     "title": "The U.S. saw July cases more than double the total of any other month.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 7, 1),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/UScaseJuly.png",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 7, 1),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/UScaseJuly.png",
     "description": "The United States recorded more than 1.9 million new infections in July, nearly 42 percent of the more than 4.5 million cases reported nationwide since the pandemic began and more than double the number documented in any other month, according to data compiled by The New York Times. The previous monthly high to this point came in April, when more than 880,000 new cases were recorded.",
   },
   {
     "title": "One day before the United States surpassed 150,000 deaths.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 7, 3),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath150k.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 7, 3),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath150k.jpg",
     "description": "One day before the United States surpassed 150,000 deaths from the coronavirus, Mr. Trump appeared resigned to the toll, saying in an interview with Axios, “It is what it is.”",
   },
 
   {
     "title": "Global virus deaths surpassed 800,000.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 7, 22),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/gdeath800k.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 7, 22),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/gdeath800k.jpg",
     "description": "The global death toll from the coronavirus surpassed 800,000 on Aug. 22. The tally rose as new infections flared in Europe and high numbers of deaths were recorded in the United States, India, South Africa and most of Latin America.",
   },
   {
     "title": "India became the country with the second-highest number of cases with more than 4 million.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 8, 6),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Indiacase4M.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 8, 6),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/Indiacase4M.jpg",
     "description": "India, home to the world’s fastest growing coronavirus outbreak, surpassed Brazil to become the country with the second-highest number of cases. The total number of cases in the country on Sept. 6 was more than 4.2 million. Brazil was then ranked third with more than 4.1 million cases.",
   },
 
   {
     "title": "The U.S. death toll surpassed 200,000.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 8, 22),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath200k.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 8, 22),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath200k.jpg",
     "description": "The death toll in the United States from the coronavirus pandemic passed 200,000 on Sept. 22. More deaths had been announced in the United States than in any other country.",
   },
   {
     "title": "Global deaths reached 1 million.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 8, 28),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/gdeath1M.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 8, 28),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/gdeath1M.jpg",
     "description": "In the 10 months since a mysterious pneumonia began striking residents of Wuhan, China, Covid-19 had killed more than one million people worldwide — an agonizing toll compiled from official counts, yet one that far understates how many had really died.",
   },
 
   {
     "title": "The U.S. surpassed 10 million infections.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 10, 8),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/UScase10M.jng",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 10, 8),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/UScase10M.jng",
     "description": "The United States reached 10 million coronavirus cases on Nov. 8, with the last million added in 10 days time. The grim benchmark arrived as the country struggled to contain outbreaks in the third and most widespread wave of infection since the pandemic began.",
   },
   {
     "title": "The U.S. death toll hit 250,000.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 10, 18),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath250k.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 10, 18),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath250k.jpg",
     "description": "The United States on Nov. 18 reached yet another grim milestone, 250,000 coronavirus-related deaths. That number was expected to sharply increase as infections surged nationwide, particularly in the Midwest and Mountain States.",
   },
 
   {
     "title": "The U.S. death toll surpassed 300,000.",
-    "category": "Bad news","color":colorSet.getIndex(10),"date": new Date(2020, 11, 14),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath300k.jpg",
+    "category": "Bad News","color":am4core.color("C2213A"),"date": new Date(2020, 11, 14),"center": "bottom","link":"https://www.nytimes.com/article/coronavirus-timeline.html","image":"images/2020/v2/USdeath300k.jpg",
     "description": "The coronavirus death toll in the United States surpassed 300,000 on Dec. 14. It was another wrenching record that came less than four weeks after the nation’s virus deaths reached a quarter of a million. Covid-19 surpassed heart disease as the leading cause of death in the United States, the Centers for Disease Control and Prevention director Robert Redfield said.",
   },
 ]
