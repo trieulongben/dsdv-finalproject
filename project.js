@@ -1399,7 +1399,7 @@ bullet.events.on("hit", function(event){
       height: 450,
       modal: true,
       close: function () {
-          $("#thedialog").attr('src', "about:blank");
+          $("#somediv").attr('src', "about:blank");
       }
   });
   return false;

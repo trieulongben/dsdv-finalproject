@@ -343,7 +343,8 @@ class barChartRace {
    
 
     updateByDate(inputDate) {
-        console.log(this.sets[0])
+        console.log(this.sets.length)
+
             this.yIndex=inputDate;
             this.date = this.sets[this.yIndex]; //sets là array containt từ ngày Jan 22 đến Jun 5
             this.setSlice = this.series.filter(d => d.date == this.date && !isNaN(d.value))
@@ -450,7 +451,7 @@ class barChartRace {
             this.rank();
             this.timeYear.html(this.date);
 
-
+        
         }
 
 
