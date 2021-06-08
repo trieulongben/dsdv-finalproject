@@ -296,7 +296,7 @@ class barChartRace {
 
     vector() {
         let svg = this.svg;
-        svg.append('text').attr("x", 45).attr('y', 45).html(this.title).attr('style', 'font-size: 28px; font-weight: 700; opacity: 0.75;');
+        svg.append('text').attr("x", 45).attr('y', 45).html(this.title).attr('style', 'font-size: 28px; font-weight: 700; opacity: 0.75;color:white');
 
         svg.append('g').attr('class', 'axis xAxis').attr('transform', `translate(0, ${this.margin.top})`).call(this.xAxis).selectAll('.tick line').classed('origin', d => d == 0);
 
@@ -343,7 +343,8 @@ class barChartRace {
    
 
     updateByDate(inputDate) {
-        console.log(this.sets[0])
+        console.log(this.sets.length)
+
             this.yIndex=inputDate;
             this.date = this.sets[this.yIndex]; //sets là array containt từ ngày Jan 22 đến Jun 5
             this.setSlice = this.series.filter(d => d.date == this.date && !isNaN(d.value))
@@ -450,7 +451,7 @@ class barChartRace {
             this.rank();
             this.timeYear.html(this.date);
 
-
+        
         }
 
 
